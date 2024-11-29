@@ -101,7 +101,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void playNextSong() {
         if (isRepetir) {
-            // Reproduce la misma canción nuevamente
             playSong(currentSongId, findViewById(getLayoutIdForSong(currentSongId)));
             return;
         }
@@ -148,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
         } else if (songId == TRACK_LUIS_MIGUEL) {
             return R.id.Cancion5;
         }
-        return -1; // Si no encuentra la canción, devuelve un valor predeterminado.
+        return -1;
     }
 
     // Método para activar/desactivar el modo aleatorio
@@ -156,7 +155,6 @@ public class MainActivity extends AppCompatActivity {
         isAleatorio = !isAleatorio;
 
         if (isAleatorio) {
-            // Cambiar fondo del botón a verde
             view.setBackgroundColor(Color.GREEN);
             // Reproducir una canción aleatoria si no está sonando ninguna canción
             if (mediaPlayer == null || !mediaPlayer.isPlaying()) {
@@ -167,7 +165,6 @@ public class MainActivity extends AppCompatActivity {
             }
             Toast.makeText(this, "Modo aleatorio activado", Toast.LENGTH_SHORT).show();
         } else {
-            // Revertir fondo del botón al color original
             view.setBackgroundColor(getResources().getColor(R.color.colorButtonDefault));
             Toast.makeText(this, "Modo aleatorio desactivado", Toast.LENGTH_SHORT).show();
         }
@@ -178,11 +175,9 @@ public class MainActivity extends AppCompatActivity {
         isRepetir = !isRepetir;
 
         if (isRepetir) {
-            // Cambiar fondo del botón a verde
             view.setBackgroundColor(Color.GREEN);
             Toast.makeText(this, "Modo repetición activado", Toast.LENGTH_SHORT).show();
         } else {
-            // Revertir fondo del botón al color original
             view.setBackgroundColor(getResources().getColor(R.color.colorButtonDefault));
             Toast.makeText(this, "Modo repetición desactivado", Toast.LENGTH_SHORT).show();
         }
