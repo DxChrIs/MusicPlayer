@@ -18,6 +18,6 @@
     <string name="ArtistaDeCancion5">Luis Miguel</string>
     <string name="AlbumDeCancion5">Soy como quiero ser</string>
     <string name="ModoAleatorio">Aleatorio</string>
-    <string name="DescripcionApp">Reproductor de Musica.\n\n© Todos los derechos reservados.\n\n</string>
+    <string name="DescripcionApp">Reproductor de Musica.\n© Todos los derechos reservados.\n\n</string>
     <string name="RedesSociales">MusicPlayer</string>
 </resources>
