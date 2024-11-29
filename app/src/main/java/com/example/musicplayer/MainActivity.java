@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
             playSong(songId, songView);
         } else {
             playlist.add(songId);
-            Toast.makeText(this, "Canción añadida a la cola", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Canción añadida a la fila de reproducción", Toast.LENGTH_SHORT).show();
         }
     }
 
