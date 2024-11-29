@@ -355,21 +355,23 @@
             <ImageButton
                 android:id="@+id/cmdModoAleatorio"
                 android:layout_width="50dp"
-                android:layout_height="45dp"
+                android:layout_height="40dp"
                 android:layout_marginStart="40dp"
                 android:gravity="start|center"
                 android:scaleType="fitCenter"
-                app:srcCompat="@drawable/aleatorio_icono" />
+                app:srcCompat="@drawable/aleatorio_icono"
+                android:background="@color/colorButtonDefault" />
 
             <ImageButton
                 android:id="@+id/cmdModoRepeticion"
                 android:layout_width="50dp"
-                android:layout_height="45dp"
+                android:layout_height="40dp"
                 android:layout_marginStart="5dp"
                 android:layout_marginEnd="40dp"
                 android:gravity="start|center"
                 android:scaleType="fitCenter"
-                app:srcCompat="@drawable/repetir_icono" />
+                app:srcCompat="@drawable/repetir_icono"
+                android:background="@color/colorButtonDefault" />
 
         </LinearLayout>
     </LinearLayout>

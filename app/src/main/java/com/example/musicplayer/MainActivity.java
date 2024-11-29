@@ -101,7 +101,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void playNextSong() {
         if (isRepetir) {
-            playSong(currentSongId, currentPlayingLayout); // Reproduce la misma canción nuevamente
+            // Reproduce la misma canción nuevamente
+            playSong(currentSongId, findViewById(getLayoutIdForSong(currentSongId)));
             return;
         }
 
