@@ -11,15 +11,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     private MediaPlayer mediaPlayer;
     private LinkedList<Integer> playlist = new LinkedList<>();
-    private boolean isShuffle = false;
-    private boolean isRepeat = false;
+    private boolean isAleatorio = false; // Aleatorio activado o desactivado
+    private boolean isRepetir = false;  // Repetir activado o desactivado
     private int currentSongId = -1;
     private LinearLayout currentPlayingLayout;
+    private List<Integer> allSongs; // Lista de todas las canciones para el modo aleatorio
     private static final int TRACK_KEVIN_KAARL = R.raw.kevin_kaarl_esta_noche;
     private static final int TRACK_EMPIRE = R.raw.empire_of_the_sun_we_are_the_people;
     private static final int TRACK_NIRVANA = R.raw.nirvana_smells_like_teen_spirit;
@@ -32,6 +34,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         setupSongClickListeners();
+
+        // Inicializar la lista de todas las canciones para el modo aleatorio
+        allSongs = new ArrayList<>();
+        allSongs.add(TRACK_KEVIN_KAARL);
+        allSongs.add(TRACK_EMPIRE);
+        allSongs.add(TRACK_NIRVANA);
+        allSongs.add(TRACK_ARTEMAS);
+        allSongs.add(TRACK_LUIS_MIGUEL);
+
+        // Set listeners for the Aleatorio and Repetir buttons
+        findViewById(R.id.cmdModoAleatorio).setOnClickListener(v -> toggleAleatorio(v));
+        findViewById(R.id.cmdModoRepeticion).setOnClickListener(v -> toggleRepetir(v));
     }
 
     private void setupSongClickListeners() {
@@ -86,19 +100,33 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void playNextSong() {
-        if (isRepeat) {
-            playSong(currentSongId, currentPlayingLayout);
+        if (isRepetir) {
+            playSong(currentSongId, currentPlayingLayout); // Reproduce la misma canción nuevamente
             return;
         }
 
-        if (isShuffle) {
-            Collections.shuffle(playlist);
+        if (isAleatorio) {
+            // Si el modo aleatorio está activado, seleccionar una canción aleatoria que no se haya reproducido
+            if (allSongs.size() > 0) {
+                Collections.shuffle(allSongs);
+                int nextSongId = allSongs.get(0); // Obtener la primera canción aleatoria de la lista
+                allSongs.remove(0); // Eliminar la canción de la lista para que no se repita
+                playSong(nextSongId, findViewById(getLayoutIdForSong(nextSongId)));
+                return;
+            }
+            // Si ya se han reproducido todas las canciones, recargar la lista de canciones
+            allSongs.add(TRACK_KEVIN_KAARL);
+            allSongs.add(TRACK_EMPIRE);
+            allSongs.add(TRACK_NIRVANA);
+            allSongs.add(TRACK_ARTEMAS);
+            allSongs.add(TRACK_LUIS_MIGUEL);
         }
 
         if (!playlist.isEmpty()) {
-            int nextSongId = playlist.poll();
+            int nextSongId = playlist.poll();  // Saca la primera canción de la cola
             playSong(nextSongId, findViewById(getLayoutIdForSong(nextSongId)));
         } else {
+            Toast.makeText(this, "Fin de la cola", Toast.LENGTH_SHORT).show();
             currentSongId = -1;
             if (mediaPlayer != null) {
                 mediaPlayer.release();
@@ -122,14 +150,41 @@ public class MainActivity extends AppCompatActivity {
         return -1; // Si no encuentra la canción, devuelve un valor predeterminado.
     }
 
-    public void toggleShuffle(View view) {
-        isShuffle = !isShuffle;
-        Toast.makeText(this, isShuffle ? "Modo aleatorio activado" : "Modo aleatorio desactivado", Toast.LENGTH_SHORT).show();
+    // Método para activar/desactivar el modo aleatorio
+    public void toggleAleatorio(View view) {
+        isAleatorio = !isAleatorio;
+
+        if (isAleatorio) {
+            // Cambiar fondo del botón a verde
+            view.setBackgroundColor(Color.GREEN);
+            // Reproducir una canción aleatoria si no está sonando ninguna canción
+            if (mediaPlayer == null || !mediaPlayer.isPlaying()) {
+                Collections.shuffle(allSongs);
+                int nextSongId = allSongs.get(0);
+                allSongs.remove(0); // Eliminar la canción reproducida de la lista
+                playSong(nextSongId, findViewById(getLayoutIdForSong(nextSongId)));
+            }
+            Toast.makeText(this, "Modo aleatorio activado", Toast.LENGTH_SHORT).show();
+        } else {
+            // Revertir fondo del botón al color original
+            view.setBackgroundColor(getResources().getColor(R.color.colorButtonDefault));
+            Toast.makeText(this, "Modo aleatorio desactivado", Toast.LENGTH_SHORT).show();
+        }
     }
 
-    public void toggleRepeat(View view) {
-        isRepeat = !isRepeat;
-        Toast.makeText(this, isRepeat ? "Modo repetición activado" : "Modo repetición desactivado", Toast.LENGTH_SHORT).show();
+    // Método para activar/desactivar el modo repetición
+    public void toggleRepetir(View view) {
+        isRepetir = !isRepetir;
+
+        if (isRepetir) {
+            // Cambiar fondo del botón a verde
+            view.setBackgroundColor(Color.GREEN);
+            Toast.makeText(this, "Modo repetición activado", Toast.LENGTH_SHORT).show();
+        } else {
+            // Revertir fondo del botón al color original
+            view.setBackgroundColor(getResources().getColor(R.color.colorButtonDefault));
+            Toast.makeText(this, "Modo repetición desactivado", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
