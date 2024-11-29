@@ -17,4 +17,5 @@
     <string name="NombreDeCancion5">Ahora te puedes marchar</string>
     <string name="ArtistaDeCancion5">Luis Miguel</string>
     <string name="AlbumDeCancion5">Soy como quiero ser</string>
+    <string name="ModoAleatorio">Aleatorio</string>
 </resources>
