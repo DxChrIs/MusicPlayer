@@ -5,4 +5,286 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"/>
+    tools:context=".MainActivity"
+    android:background="@color/dark_gray">
+
+    <LinearLayout
+        android:id="@+id/BarraNavegacion"
+        android:layout_width="match_parent"
+        android:layout_height="81dp"
+        android:background="@color/gray"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <ImageView
+            android:id="@+id/ivLogoMusicPlayer"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:translationX="-60dp"
+            app:srcCompat="@drawable/logo_music_player" />
+
+        <TextView
+            android:id="@+id/txtSeccionMusica"
+            android:layout_width="55dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/Seccion_Musica"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:translationX="-45dp" />
+
+        <TextView
+            android:id="@+id/txtSeccionPlaylist"
+            android:layout_width="55dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/Seccion_Playlist"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:translationX="-40dp" />
+
+        <TextView
+            android:id="@+id/txtSeccionPodcast"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:text="@string/Seccion_Podcast"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:translationX="-34dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Canciones"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/BarraNavegacion"
+        android:layout_marginTop="80dp">
+
+        <LinearLayout
+            android:id="@+id/Cancion1"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:focusable="true"
+            android:orientation="horizontal"
+            android:layout_margin="30dp"
+            android:padding="5dp"
+            android:clickable="true"
+            android:background="@color/light_gray">
+
+            <ImageView
+                android:id="@+id/ivCancion1"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/esta_noche_kevin_kaarl"
+                android:layout_margin="5dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_margin="5dp">
+
+                <TextView
+                    android:id="@+id/txtNombreDeCancion1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/NombreDeCancion1"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="5dp"/>
+                <TextView
+                    android:id="@+id/txtArtistaDeCancion1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ArtistaDeCancion1"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="5dp"/>
+
+                <TextView
+                    android:id="@+id/txtAlbumDeCancion1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/AlbumDeCancion1"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="2dp"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Cancion2"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:focusable="true"
+            android:orientation="horizontal"
+            android:layout_margin="30dp"
+            android:padding="5dp"
+            android:clickable="true"
+            android:background="@color/light_gray"
+            android:translationY="-45dp">
+
+            <ImageView
+                android:id="@+id/ivCancion2"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/we_are_the_people_empire_of_the_sun"
+                android:layout_margin="5dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_margin="5dp">
+
+                <TextView
+                    android:id="@+id/txtNombreDeCancion2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/NombreDeCancion2"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="5dp"/>
+                <TextView
+                    android:id="@+id/txtArtistaDeCancion2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ArtistaDeCancion2"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="5dp"/>
+
+                <TextView
+                    android:id="@+id/txtAlbumDeCancion2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/AlbumDeCancion2"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="2dp"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Cancion3"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:focusable="true"
+            android:orientation="horizontal"
+            android:layout_margin="30dp"
+            android:padding="5dp"
+            android:clickable="true"
+            android:background="@color/light_gray"
+            android:translationY="-90dp">
+
+            <ImageView
+                android:id="@+id/ivCancion3"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/smells_like_teen_spirit_nirvana"
+                android:layout_margin="5dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_margin="5dp">
+
+                <TextView
+                    android:id="@+id/txtNombreDeCancion3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/NombreDeCancion3"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="5dp"/>
+                <TextView
+                    android:id="@+id/txtArtistaDeCancion3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ArtistaDeCancion3"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="5dp"/>
+
+                <TextView
+                    android:id="@+id/txtAlbumDeCancion3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/AlbumDeCancion3"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="2dp"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Cancion4"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:focusable="true"
+            android:orientation="horizontal"
+            android:layout_margin="30dp"
+            android:padding="5dp"
+            android:clickable="true"
+            android:background="@color/light_gray"
+            android:translationY="-135dp">
+
+            <ImageView
+                android:id="@+id/ivCancion4"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/i_like_the_way_you_kiss_me_artemas"
+                android:layout_margin="5dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_margin="5dp">
+
+                <TextView
+                    android:id="@+id/txtNombreDeCancion4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/NombreDeCancion4"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="5dp"/>
+                <TextView
+                    android:id="@+id/txtArtistaDeCancion4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ArtistaDeCancion4"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="5dp"/>
+
+                <TextView
+                    android:id="@+id/txtAlbumDeCancion4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/AlbumDeCancion4"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="2dp"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

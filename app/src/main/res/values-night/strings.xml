@@ -1,8 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">MusicPlayer</string>
     <string name="Seccion_Musica">Música</string>
     <string name="Seccion_Playlist">Playlist</string>
-    <string name="Seccion_Podcast">Podcast</string>
     <string name="NombreDeCancion1">Está Noche</string>
     <string name="ArtistaDeCancion1">Kevin Kaarl</string>
     <string name="AlbumDeCancion1">Está Noche</string>
