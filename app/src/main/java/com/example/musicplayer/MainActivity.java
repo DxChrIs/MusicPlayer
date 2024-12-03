@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if (!playlist.isEmpty()) {
-            int nextSongId = playlist.poll();  // Saca la primera canción de la cola
+            int nextSongId = playlist.poll();
             playSong(nextSongId, findViewById(getLayoutIdForSong(nextSongId)));
         } else {
             Toast.makeText(this, "Fin de la cola", Toast.LENGTH_SHORT).show();
@@ -150,17 +150,15 @@ public class MainActivity extends AppCompatActivity {
         return -1;
     }
 
-    // Método para activar/desactivar el modo aleatorio
     public void toggleAleatorio(View view) {
         isAleatorio = !isAleatorio;
 
         if (isAleatorio) {
             view.setBackgroundColor(Color.GREEN);
-            // Reproducir una canción aleatoria si no está sonando ninguna canción
             if (mediaPlayer == null || !mediaPlayer.isPlaying()) {
                 Collections.shuffle(allSongs);
                 int nextSongId = allSongs.get(0);
-                allSongs.remove(0); // Eliminar la canción reproducida de la lista
+                allSongs.remove(0);
                 playSong(nextSongId, findViewById(getLayoutIdForSong(nextSongId)));
             }
             Toast.makeText(this, "Modo aleatorio activado", Toast.LENGTH_SHORT).show();
@@ -170,7 +168,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // Método para activar/desactivar el modo repetición
     public void toggleRepetir(View view) {
         isRepetir = !isRepetir;
 
